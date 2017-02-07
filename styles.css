@@ -17,6 +17,10 @@ p {
     font-size: 0.9em;
 }
 
+main {
+    max-width: 100vw;
+}
+
 /*Main Navigation*/
 .mainNav {
     display: flex;
@@ -70,9 +74,11 @@ li > ul {
 .logIn {
     display: flex;
     background: #389C90;
-    height: 16em;
     justify-content: space-around;
     width: 50vw;
+    min-width: 20em;
+    padding: 4em 0 2em 0;
+    flex-grow: 1;
 }
 
 .logIn > form {
@@ -98,14 +104,15 @@ li > ul {
 /*checkbox becomes inline element*/
 input[type="checkbox"] {
     padding: 0;
-    margin-top: 1em;
+    margin-top: 0.3em;
 }
 
-label[for="field-stay-logged-in"] {
+.logIn form label[for="field-stay-logged-in"] {
     display: block;
     padding-left: 2em;
     margin-top: -1.4em;
     padding-bottom: 1em;
+    color: #ddd;
 }
 
 /*input fields custom*/
@@ -132,14 +139,52 @@ button[type="submit"]:hover {
 }
 
 .finishOrder {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
     width: 50vw;
+    min-width: 20em;
+    background: #4F210D;
+    font-weight: 800;
+    font-size: 0.8em;
+    letter-spacing: .15em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.finishOrder nav {
+    display: flex;
+    flex-direction: column;
+    padding: 4em 0 2em 0;
+}
+
+.finishOrder a {
+    color: white;
 }
 
 .twoItemRow {
     display: flex;
     flex-direction: row;
     max-width: 100vw;
+    flex-wrap: wrap;
 }
+/*Used tips to style progress bar from: https://css-tricks.com/html5-progress-element/*/
+
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2em;
+    width: 20em;
+}
+
+progress[value]::-webkit-progress-bar {
+    background: white;
+}
+
+progress[value]::-webkit-progress-value {
+    background: #389C90;
+}
+
 
 
 
