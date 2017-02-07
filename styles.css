@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100vw;
+    max-width: 100vw;
+    flex-direction: column;
+    font-family: "Open Sans",  sans-serif;
+}
+
+h1 {
+    font-family: inherit;
+}
+
+p {
+    font-family: inherit;
+    font-size: 0.9em;
+}
+
+/*Main Navigation*/
+.mainNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+    height: 3em;
+    background: black;
+}
+
+.mainNav h1 {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 20em;
+}
+
+ul li {
+    display: flex;
+    flex-direction: row;
+}
+
+ul li a {
+    font-family: inherit;
+    font-size: 0.8em;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*First ul in listitem, dropdown element is invisible unless hovered on products.*/
+li > ul {
+    flex-direction: column;
+    background: yellow;
+    height: 5em;
+    padding: 1em;
+    display: none;
+}
+
+/*end main navigation*/
+
+/*login section*/
+.logIn {
+    display: flex;
+    background: #389C90;
+    height: 16em;
+    justify-content: space-around;
+    width: 50vw;
+}
+
+.logIn > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/*smaller labels than default font-size*/
+.logIn form label, .logIn form a {
+    font-weight: 800;
+    font-size: 0.8em;
+    letter-spacing: .15em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.logIn form label + a {
+    align-self: flex-end;
+    margin: 0.5em 0;
+    font-size: 0.2em;
+}
+
+/*checkbox becomes inline element*/
+input[type="checkbox"] {
+    padding: 0;
+    margin-top: 1em;
+}
+
+label[for="field-stay-logged-in"] {
+    display: block;
+    padding-left: 2em;
+    margin-top: -1.4em;
+    padding-bottom: 1em;
+}
+
+/*input fields custom*/
+input[type="password"], input[type="email"] {
+    height: 2em;
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+    width: 20em;
+}
+/*custom button*/
+button[type="submit"] {
+    height: 3em;
+    background: none;
+    border: 0.4em white solid;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background: white;
+    color: #389C90;
+}
+
+.finishOrder {
+    width: 50vw;
+}
+
+.twoItemRow {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+}
+
+
+
+
