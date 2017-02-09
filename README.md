@@ -1,3 +1,6 @@
+Assignment 1: http://cydstumpel.nl/minor/csstotherescue/styleguide.html
+
+
 <<<<<<< HEAD
 # Components
 
