@@ -1,4 +1,6 @@
 Assignment 1: http://cydstumpel.nl/minor/csstotherescue/styleguide.html
+Assignmet 2: https://sidstumple.github.io/styleguide/styleguide.html
+
 
 
 <<<<<<< HEAD
