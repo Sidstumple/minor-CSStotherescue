@@ -204,18 +204,48 @@ li > ul li {
 }
 
 /*checkbox becomes inline element*/
-input[type="checkbox"] {
-    padding: 0;
-    margin-top: 0.3em;
+input[id="field-stay-logged-in"] {
+    display: none;
 }
 
-.log-in form label[for="field-stay-logged-in"] {
-    display: block;
-    padding-left: 2em;
-    margin-top: -1.4em;
-    padding-bottom: 1em;
-    color: #ddd;
+/*Got info for custom checkboxes from: http://www.hongkiat.com/blog/css3-checkbox-radio*/
+
+label[for="field-stay-logged-in"] {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 1.5em;
+    margin-right: 1em;
+    font-size: 1.5em;
+
 }
+
+label[for="field-stay-logged-in"]:before {
+    content: "";
+    display: inline-block;
+
+    width: 1em;
+    height: 1em;
+
+    margin-right: 0.8em;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: white;
+}
+
+input[id="field-stay-logged-in"]:checked + label:before {
+    content: "✔";
+    color: #85BAA1;
+    font-size:  1em;
+    text-align: center;
+    line-height: 1em;
+    padding-left: 0.2em;
+    box-sizing: border-box;
+}
+
+
+
 
 /*input fields custom*/
 input[type="password"], input[type="email"] {
@@ -242,7 +272,7 @@ button[type="submit"]:hover {
 
 
 /*Finish order section*/
-.finishOrder {
+.finish-order {
     background: #80CED6;
     font-weight: 800;
     font-size: 0.8em;
@@ -253,14 +283,15 @@ button[type="submit"]:hover {
     flex-basis: 50vw;
 }
 
-.finishOrder nav {
+.finish-order nav {
     display: flex;
     flex-direction: column;
     padding: 4em 0 2em 0;
     width: 100%;
+    height: auto;
 }
 
-.finishOrder a {
+.finish-order a {
     color: white;
 }
 
@@ -353,11 +384,14 @@ article.media {
 }
 
 /*second article*/
-article.picture {
+.picture {
     background: #6E8894;
     padding: 5vw;
-    padding-top: 2em;
-    padding-bottom: 3em;
+    padding-top: 1em;
+}
+
+.picture > .two-column-element {
+    padding: 1em;
 }
 
 
@@ -404,7 +438,10 @@ figcaption {
 }
 
 
-figure > h1 {
+figure > h3 {
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: .15em;
     background: white;
     padding: 1em;
     margin: 0;
