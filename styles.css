@@ -357,7 +357,7 @@ progress[value] {
     text-decoration: none;
 }
 
-.two-item-row article h1 > a::after {
+article h1 > a::after {
     position: absolute;
     top: 0;
     bottom: 0;
