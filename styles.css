@@ -8,14 +8,14 @@ body {
     font-family: "Open Sans",  sans-serif;
 }
 
-h1, legend {
+h1 {
     font-family: inherit;
     letter-spacing: .15em;
     text-transform: uppercase;
     font-weight: 900;
 }
 
-.centerBig {
+.center-big {
     font-size: 6vw;
     display: flex;
     justify-content: center;
@@ -44,7 +44,7 @@ main {
     border-right: 1em solid transparent;
     border-top: 1em solid white;
     margin: 0 auto;
-    margin-top: -2.3em;
+    margin-top: -2.5em;
 }
 
 /*nav button starts here*/
@@ -53,7 +53,7 @@ main {
     margin: 0 auto;
 }
 
-.mainNav {
+.main-nav {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -61,31 +61,40 @@ main {
     background: black;
     margin-top: -16em;
     transition: 1s ease-in-out;
+    z-index: 2;
 }
 
-.mainNav h1 {
+.main-nav h1 {
     color: white;
     display: flex;
     text-transform: uppercase;
     margin-bottom: .7em;
     justify-content: center;
-    text-decoration: none;
-    transition: 1s ease;
-    margin-top: 2.4em;
+    transition: 1s ease; 
+    margin-top: 0;
 }
 
-.mainNav ul {
+.main-nav a {
+    text-decoration: none;
+}
+
+.main-nav ul {
     flex-direction: column;
     justify-content: space-between;
-    width: 20em;
+    width: 100vw;
+    box-sizing: border-box;
+    background: #85baa1;
+    padding: 2em;
+    padding-bottom: 3em;
+    margin-top: 0;
 }
 
-.mainNav ul li ul li a {
-    color: #999;
+.main-nav ul li ul a {
+    color: lightgrey;
 }
 
 
-.mainNav ul li {
+.main-nav ul li {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -99,74 +108,88 @@ ul li a {
     text-transform: uppercase;
     font-weight: 900;
     padding-top: 2em;
+    width: 10em;
+    width: max-content;
 }
 
 /*First ul in listitem, dropdown element is invisible unless hovered on products.*/
-.mainNav li > ul {
+.main-nav li > ul {
     display: flex;
     flex-direction: row;
     padding: 0 1em;
+    width: 17em;
+}
 
+li > ul li {
+    width: 4em;
 }
 
 
 /*De-Emphasize op menu*/
-#openMenu:target {
+#open-menu:target {
      margin-top: 0;
 }
 
-#openMenu:target > a > div {
+#open-menu:target > a > div {
     opacity: 1;
     transform: rotate(180deg);
     transition: 1s ease;
 }
 
-#openMenu:target > a > h1 {
+#open-menu:target > a > h1 {
     opacity: 0;
 }
 
-#openMenu:target + main {
-    filter: blur(0.4em);
+#open-menu:target + a .darkify {
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    width: 100vw;
+    -webkit-filter: grayscale(100%);
+    background: rgba(0,0,0,0.6);
+    transition: 1s;
 }
 
 /*end main navigation*/
 
 
 /*Standard flexy two item row*/
-.twoItemRow {
+.two-item-row {
     display: flex;
     flex-direction: row;
     max-width: 100vw;
     flex-wrap: wrap;
     box-sizing: border-box;
 }
+
 /*Standard two column element markup*/
-.twoColumnElement {
+.two-column-element {
     display: flex;
-    justify-content: space-around;
     flex-basis: 25.5em;
+    justify-content: flex-start;
     width: 50%;
+    height: max-content;
     padding: 4em 0 2em 0;
     flex-grow: 1;
     box-sizing: border-box;
-    color: white;
+    color: #333;
 }
-
-
-
 
 /*login section*/
-.logIn {
+.log-in {
     background: #595959;
+    height: auto;
+    justify-content: center;
 }
 
-.logIn > form {
+.log-in > form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 /*smaller labels than default font-size*/
-.logIn form label, .logIn form a {
+.log-in form label, .log-in form a {
     font-weight: 800;
     font-size: 0.8em;
     letter-spacing: .15em;
@@ -174,7 +197,7 @@ ul li a {
     text-transform: uppercase;
 }
 
-.logIn form label + a {
+.log-in form label + a {
     align-self: flex-end;
     margin: 0.5em 0;
     font-size: 0.5em;
@@ -186,7 +209,7 @@ input[type="checkbox"] {
     margin-top: 0.3em;
 }
 
-.logIn form label[for="field-stay-logged-in"] {
+.log-in form label[for="field-stay-logged-in"] {
     display: block;
     padding-left: 2em;
     margin-top: -1.4em;
@@ -286,47 +309,52 @@ progress[value] {
 
 
 /*Both articles*/
-.twoItemRow article {
+.two-item-row article {
     flex-direction: column;
     justify-content: flex-start;
     padding: 2em;
 }
 
-.twoItemRow article > div > h1 {
+.two-item-row article h1 {
     margin-top: 0;
     color: #444;
     text-transform: uppercase;
 }
 
-.twoItemRow article > div > h1 > a {
+.two-item-row h1 > a {
     color: currentColor;
+    text-decoration: none;
+}
+
+.two-item-row article h1 > a::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
 }
 
 /*First article*/
-.twoItemRow > article:first-of-type {
-    background: #85BAA1;
-    
-}
-
 article.media {
-    background: white;
+    background: #85BAA1;
     color: #444;
     padding: 5vw;
     padding-top: 2em;
     padding-bottom: 3em;
 }
 
-.media > .whiteContainer {
+.media > .container {
     background: white;
     padding: 1em;
+    position: relative;
+    flex-direction: column;
+    margin: 1%;
 }
 
 /*second article*/
-.twoItemRow > article:nth-of-type(2) {
-    background: #6E8894;
-}
-
 article.picture {
+    background: #6E8894;
     padding: 5vw;
     padding-top: 2em;
     padding-bottom: 3em;
@@ -340,7 +368,7 @@ img {
 }
 
 
-.innerTwoItemRow {
+.inner-two-item-row {
     display: flex;
     flex-direction: row;
     max-width: 100vw;
@@ -350,7 +378,7 @@ img {
     justify-content: space-between;
 }
 
-.innerTwoColumnElement {
+.inner-two-column-element {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -366,7 +394,7 @@ img {
 figure {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 1%;
 }
 /*figcaption*/
 figcaption {
@@ -390,16 +418,30 @@ figure > h1 {
 }
 
 .rating label:hover {
-    font-size: 1em;
+    color: #85BAA1;
 }
 
+input[name="rating"] {
+    display: none;
+}
 
-.ratingRow {
+input[name="rating"]:checked + label {
+    font-size: 2.5em;
+}
+
+input[name="rating"]:checked + label svg {
+    transition: 1s;
+    transform: rotate(360deg);
+}
+
+.rating-row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
+    height: 7em;
     padding: 0;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: .5em;
 }
 
@@ -407,16 +449,11 @@ figure > h1 {
 fieldset {
     border: none;
     display: flex;
-    height: 4em;
     padding: 0;
 }
 
-fieldset legend {
-    padding: 0;
-}
-
-fieldset [type="radio"] {
-  display: none;
+legend {
+    display: none;
 }
 
 fieldset svg {
@@ -424,17 +461,14 @@ fieldset svg {
   width: 1.5em;
 }
 
-.rating > fieldset label {
+.rating label {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     font-weight: 900;
-    font-size: 0.8em;
+    font-size: 1.8em;
     text-transform: uppercase;
-}
-
-label[for="rating-0"]:target {
-    
+    z-index: 2;
 }
 
 .chat {
@@ -541,7 +575,7 @@ textarea[name="field-message"] {
     height: 20em;
     box-sizing: border-box;
 }
-.textareaContainer {
+.textarea-container {
     padding: 1em;
 }
 
@@ -564,12 +598,31 @@ footer a{
     color: #80CED6;
 }
 
+a.expand-click::target {
+    width: 100vw;
+    height: 2em;
+    margin-top: 0;
+}
+
+/*The fancy Ampersand, code from CSS Secrets by Lea Verou. I hope you do understand I had to, this is not a design choice*/
+@font-face {
+    font-family: Ampersand;
+    src:    local('Engravers MT'),
+            local('Edwardian Script ITC'),
+            local('Palatino'),
+            local('Comic Sans MS');
+    unicode-range: U+26;
+    }
+.ampersandify {
+font-family: Ampersand, "Open Sans", sans-serif;
+}
+
 
 
 
 /*mediaqueries*/
 @media (max-width: 57.813em) {
-    .innerTwoColumnElement {
+    .inner-two-column-element {
         flex-grow: 1;
         width: 100%;
     }
