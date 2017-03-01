@@ -412,8 +412,8 @@ input[type="password"], input[type="email"] {
     margin-bottom: 0.5em;
     width: 20em;
     box-sizing: border-box;
-    background: #eee;
-    border:none;
+    border: none;
+    border-bottom: .4em solid #80CED6;
 }
 
 /*custom button*/
@@ -425,29 +425,30 @@ button[type="submit"] {
     font-weight: bold;
     color: white;
     text-transform: uppercase;
+    letter-spacing: .15em;
+    font-weight: 900;
 }
 
 button[type="submit"]:hover {
     background: white;
-    color: #389C90;
+    color: #6E8894;
 }
 
 /*Validating form:*/
 input[type="password"]:valid, input[type="email"]:valid {
-    background: white;
-    transition: 1s;
+    border: none;
+    border-bottom: 1em solid rgba(133, 186, 161, 0.7);
     color: black;
-    border:none;
 }
 
 form:valid {
     background: #85BAA1;
 }
 
-/*hocus states form*/
-input[type="password"]:focus, input[type="email"]:focus,
+/*hover states input form*/
 input[type="password"]:hover, input[type="email"]:hover{
-    border: 0.4em #85BAA1 solid;
+    border: none;
+    border-bottom: 1em solid #80CED6;
 }
 
 
@@ -487,7 +488,7 @@ progress + ol {
 progress + ol li {
     list-style-type: none;
     display: flex;
-    color: #ddd;
+    color: #6e8894;
 }
 
 
