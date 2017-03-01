@@ -1,4 +1,5 @@
-/*Styleguide CSS*/
+/*general styles*/
+
 body {
     margin: 0;
     padding: 0;
@@ -33,13 +34,23 @@ a {
     letter-spacing: .15em;
 }
 
+/*a hocus*/
+a:hover, a:focus {
+    color: #85BAA1;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
 main {
     max-width: 100vw;
-    transition: 1s;
 }
 
 /*Main Navigation*/
-
+/*main-nav is out of the viewport only menu-toggle button is visible*/
 .main-nav {
     display: flex;
     flex-direction: column;
@@ -49,20 +60,6 @@ main {
     margin-top: -18.5em;
     transition: 1s ease-in-out;
     z-index: 2;
-}
-
-.main-nav h1 {
-    color: white;
-    display: flex;
-    text-transform: uppercase;
-    margin-bottom: .7em;
-    justify-content: center;
-    transition: 1s ease; 
-    margin-top: 0;
-}
-
-.main-nav a {
-    text-decoration: none;
 }
 
 .main-nav ul {
@@ -83,6 +80,7 @@ main {
 }
 
 ul li a {
+    text-decoration: none;
     font-family: inherit;
     font-size: 1em;
     color: white;
@@ -95,23 +93,25 @@ ul li a {
     width: max-content;
 }
 
+/*hocus on menu links*/
 ul li a:hover, ul li a:focus {
     color: #80CED6;
 }
 
-
-/*First ul in listitem, dropdown element is invisible unless hovered on products.*/
-.main-nav li > ul {
-    display: flex;
-    flex-direction: row;
-    padding: 0 1em;
-    width: 17em;
+/*Select all footers of this doc*/
+footer {
+    font-weight: 900;
+    font-size: 0.8em;
+    text-transform: uppercase;
 }
 
-li > ul li {
-    width: 4em;
+/*all links in footers*/
+footer a{
+    color: #80CED6;
 }
 
+
+/*This menu-toggle works with the :target selector to open and close the menu*/
 .menu-toggle {
     top: 0;
     width: 3em;
@@ -138,21 +138,7 @@ li > ul li {
     animation: wiggle 1.5s 5 ease-in-out;
 }
 
-.invisible {
-    display: none;
-    opacity: 0;
-}
-
-a.expand-click:after {
-    content: '';
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-}
-
-/*using sibling selector to add animation to arrow on focus of anchor*/
+/*using sibling selector to add animation to the arrow on focus of anchor*/
 .menu-toggle a:focus + .arrow-down {
     animation: focuswiggle 2s 100;
 }
@@ -186,6 +172,7 @@ a.expand-click:after {
   }
 }
 
+/*animation on focus changes the color of the arrow*/
 @keyframes focuswiggle {
     0%{
 	border-top: 1em solid white;
@@ -217,32 +204,52 @@ a.expand-click:after {
   }
 }
 
-/*De-Emphasize op menu*/
+/*standard hide class*/
+.invisible {
+    display: none;
+    opacity: 0;
+}
+
+/*expanding the clickable area of anchor tags with the pseudo element :after, as seen in the presentation of CSS to the Rescue from Vasilis van Gemert & Rik Schennink*/
+a.expand-click:after {
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+/*Target in action, margin-top is 0 so menu is visible*/
 #open-menu:target {
     margin-top: 0;
     transition: 1s ease-in-out;
 }
 
+/*first link is not displayed anymore*/
 #open-menu:target + a + .menu-toggle a {
     display: none;
 }
 
+/*animation stops on opening of menu*/
 #open-menu:target + a + .menu-toggle {
-    position: relative;
     animation: none;
 }
 
+/*arrow rotates so user knows the button can be used as a toggle*/
 #open-menu:target + a + .menu-toggle >.arrow-down {
     transform: rotate(180deg);
     transition: 1s;
 }
 
+/*invisible link is now visible and on top*/
 #open-menu:target + a + .menu-toggle .invisible {
     display: flex;
     opacity: 1;
     z-index: 2;
 }
 
+/*the whole page gets a black semi-transparent overlay which can also be used to close the menu by clicking*/
 #open-menu:target + a .darkify {
     z-index: 1;
     position: fixed;
@@ -255,6 +262,7 @@ a.expand-click:after {
     transition: 1s;
 }
 
+/*mountains get blurred on menu open, because I had to blur something*/
 #open-menu:target + a + .menu-toggle + main > .random-mountains, 
 #open-menu:target + a + .menu-toggle + main > .random-mountains + .more-random {
     filter: blur(.3em);
@@ -263,13 +271,14 @@ a.expand-click:after {
 /*end main navigation*/
 
 
-/*The fancy Ampersand, code from CSS Secrets by Lea Verou. I hope you do understand I had to, this is not a design choice*/
+/*The fancy Ampersand. I was very rebellious, this is fancy word. Using unicodes I made the letters M O U N T the font Roboto Slab*/
 @font-face {
     font-family: Fancy;
     src:    url(fonts/RobotoSlab-Regular.ttf);
     unicode-range: U+004D, U+004F, U+0055, U+004E,  U+0054;
     }
 
+/*this class is put on a h1 element, only M O U N T will be different, the rest is displayed in the backup font*/
 .mountify {
     font-family: Fancy, "Open Sans", sans-serif;
     margin: 0;
@@ -277,6 +286,7 @@ a.expand-click:after {
     align-self: center;
 }
 
+/*This is the pseudo random background, I thought it was really ugly so I changed all the degrees and made it look like mountains, this was very time consuming. I also added a animation which is ran faster on the second layer of mountains than the first which makes them move seperately*/
 .random-mountains {
     display: flex;
     margin-top: -3em;
@@ -309,8 +319,6 @@ a.expand-click:after {
     }
 }
 
-/* end fancy ampersand */
-
 /*Standard flexy two item row*/
 .two-item-row {
     display: flex;
@@ -320,7 +328,7 @@ a.expand-click:after {
     box-sizing: border-box;
 }
 
-/*Standard two column element markup*/
+/*Standard flexy two column element*/
 .two-column-element {
     display: flex;
     flex-basis: 25.5em;
@@ -333,196 +341,6 @@ a.expand-click:after {
     color: #333;
 }
 
-/*login section*/
-.log-in {
-    background: #595959;
-    height: auto;
-    justify-content: center;
-}
-
-.log-in > form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1em;
-    background: #6E8894;
-}
-/*smaller labels than default font-size*/
-.log-in form label, .log-in form a {
-    font-weight: 800;
-    font-size: 0.8em;
-    letter-spacing: .15em;
-    color: white;
-    text-transform: uppercase;
-}
-
-.log-in form label + a {
-    align-self: flex-end;
-    margin: 0.5em 0;
-    font-size: 0.5em;
-}
-
-/*checkbox becomes inline element*/
-input[id="field-stay-logged-in"] {
-    display: none;
-}
-
-/*Got info for custom checkboxes from: http://www.hongkiat.com/blog/css3-checkbox-radio*/
-
-label[for="field-stay-logged-in"] {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding-left: 1.5em;
-    margin-right: 1em;
-    font-size: 1.5em;
-
-}
-
-label[for="field-stay-logged-in"]:before {
-    content: "";
-    display: inline-block;
-
-    width: 1em;
-    height: 1em;
-
-    margin-right: 0.8em;
-    position: absolute;
-    left: 0;
-    bottom: 1px;
-    background-color: white;
-}
-
-input[id="field-stay-logged-in"]:checked + label:before {
-    content: "✔";
-    color: #85BAA1;
-    font-size:  1em;
-    text-align: center;
-    line-height: 1em;
-    padding-left: 0.2em;
-    box-sizing: border-box;
-}
-
-/*input fields custom*/
-input[type="password"], input[type="email"] {
-    font-size: 1em;
-    height: 3em;
-    padding-left: 0.5em;
-    margin-top: 0.2em;
-    margin-bottom: 0.5em;
-    width: 20em;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: .4em solid #80CED6;
-}
-
-/*custom button*/
-button[type="submit"] {
-    height: 3em;
-    background: none;
-    border: 0.4em white solid;
-    font-size: 1em;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: .15em;
-    font-weight: 900;
-}
-
-button[type="submit"]:hover {
-    background: white;
-    color: #6E8894;
-}
-
-/*hover states input form*/
-input[type="password"]:hover, input[type="email"]:hover{
-    border: none;
-    border-bottom: 1em solid #80CED6;
-}
-
-
-/*Validating form:*/
-input[type="password"]:valid, input[type="email"]:valid {
-    border: none;
-    border-bottom: 1em solid rgba(133, 186, 161, 0.7);
-    color: black;
-}
-
-form:valid {
-    background: #85BAA1;
-}
-
-
-
-
-/*Finish order section*/
-.finish-order {
-    background: #80CED6;
-    font-weight: 800;
-    font-size: 0.8em;
-    letter-spacing: .15em;
-    color: white;
-    text-transform: uppercase;
-    padding: 5vw;
-    flex-basis: 50vw;
-}
-
-.finish-order nav {
-    display: flex;
-    flex-direction: column;
-    padding: 4em 0 2em 0;
-    width: 100%;
-    height: auto;
-}
-
-.finish-order a {
-    color: white;
-}
-
-/*Changes appearance of every ordered list sibling of progress*/
-progress + ol {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding-left: 0;
-}
-
-progress + ol li {
-    list-style-type: none;
-    display: flex;
-    color: #6e8894;
-}
-
-
-/*Used tips to style progress bar from: https://css-tricks.com/html5-progress-element/*/
-
-progress {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 2em;
-    width: 100%;
-}
-
-progress[value]::-webkit-progress-bar {
-    background: white;
-}
-
-progress[value]::-webkit-progress-value {
-    background: #595959;
-}
-
-progress[value]::-moz-progress-bar {
-    background: #85BAA1;
-}
-
-progress[value] {
-    background: white;
-    border: none;
-}
- 
-
 /*Both articles*/
 .two-item-row article {
     flex-direction: column;
@@ -534,6 +352,7 @@ progress[value] {
     margin-top: 0;
     color: #444;
     text-transform: uppercase;
+    z-index: 2;
 }
 
 .two-item-row h1 > a {
@@ -541,6 +360,7 @@ progress[value] {
     text-decoration: none;
 }
 
+/*this makes the entire block clickable*/
 article h1 > a::after {
     position: absolute;
     top: 0;
@@ -557,81 +377,6 @@ article.media {
     padding: 5vw;
     padding-top: 2em;
     padding-bottom: 3em;
-}
-
-.media > .container {
-    background: white;
-    padding: 1em;
-    position: relative;
-    flex-direction: column;
-    margin: 1%;
-    height: max-content;
-}
-
-/*second article*/
-.picture {
-    background: #6E8894;
-    padding: 5vw;
-    padding-top: 2em;
-    padding-bottom: 3em;
-}
-
-.picture > .two-column-element {
-    padding: 1em;
-}
-
-
-/*images*/
-img {
-    width: 100%;
-    height: auto;
-}
-
-
-.inner-two-item-row {
-    display: flex;
-    flex-direction: row;
-    max-width: 100vw;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    justify-content: space-between;
-}
-
-.inner-two-column-element {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 48%;
-    min-width: 11em;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-
-/*Select whole figure element*/
-figure {
-    display: flex;
-    flex-direction: column;
-    margin: 1%;
-}
-/*figcaption*/
-figcaption {
-    background: white;
-    color: #444;
-    padding: 1em;
-}
-
-
-figure > h3 {
-    font-family: inherit;
-    text-transform: uppercase;
-    letter-spacing: .15em;
-    background: white;
-    padding: 1em;
-    margin: 0;
-    color: #444;
 }
 
 /*rating*/
@@ -694,6 +439,272 @@ fieldset svg {
     z-index: 2;
 }
 
+/*END OF RATING*/
+
+/* I used intrinsic sizing property max-content to calculate the hight of a container.*/
+.media > .container {
+    background: white;
+    padding: 1em;
+    position: relative;
+    flex-direction: column;
+    margin: 1%;
+    height: max-content;
+}
+
+/*second article*/
+.picture {
+    background: #6E8894;
+    padding: 5vw;
+    padding-top: 2em;
+    padding-bottom: 3em;
+}
+
+.picture > .two-column-element {
+    padding: 1em;
+}
+
+.inner-two-item-row {
+    display: flex;
+    flex-direction: row;
+    max-width: 100vw;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.inner-two-column-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 48%;
+    min-width: 11em;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*The figure element encapsulates both picture article inner divs*/
+figure {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+
+/*figcaption*/
+figcaption {
+    background: white;
+    color: #444;
+    padding: 1em;
+}
+/*title of the picture divs*/
+figure > h3 {
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    background: white;
+    padding: 1em;
+    margin: 0;
+    color: #444;
+}
+
+/*LOGIN starts here*/
+.log-in {
+    background: #595959;
+    height: auto;
+    justify-content: center;
+}
+
+.log-in > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    background: #6E8894;
+    margin: 1em auto;
+}
+
+/*smaller labels than default font-size*/
+.log-in form label, .log-in form a {
+    font-weight: 800;
+    font-size: 0.8em;
+    letter-spacing: .15em;
+    color: white;
+    text-transform: uppercase;
+}
+
+/*pushes forgot password to the right*/
+.log-in form label + a {
+    align-self: flex-end;
+    margin: 0.5em 0;
+    font-size: 0.5em;
+}
+
+/*Custom checkbox starts here*/
+input[id="field-stay-logged-in"] {
+    display: none;
+}
+
+/*Got info for custom checkboxes from: http://www.hongkiat.com/blog/css3-checkbox-radio*/
+
+label[for="field-stay-logged-in"] {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 1.5em;
+    margin-right: 1em;
+    font-size: 1.5em;
+
+}
+
+/*replacing the old checkbox*/
+label[for="field-stay-logged-in"]:before {
+    content: "";
+    display: inline-block;
+
+    width: 1em;
+    height: 1em;
+
+    margin-right: 0.8em;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: white;
+}
+
+input[id="field-stay-logged-in"]:checked + label:before {
+    content: "✔";
+    color: #85BAA1;
+    font-size:  1em;
+    text-align: center;
+    line-height: 1em;
+    padding-left: 0.2em;
+    box-sizing: border-box;
+}
+
+/*input fields custom, this is the initial look*/
+input[type="password"], input[type="email"] {
+    font-size: 1em;
+    height: 3em;
+    padding-left: 0.5em;
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+    width: 15em;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: .4em solid #80CED6;
+}
+
+/*Submit button styles*/
+button[type="submit"] {
+    height: 3em;
+    background: none;
+    border: 0.4em white solid;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-weight: 900;
+}
+
+/*hocus on the submit button*/
+button[type="submit"]:hover, button[type="submit"]:focus {
+    background: white;
+    color: #6E8894;
+}
+
+/*hover states when hovering over input fields email and password*/
+input[type="password"]:hover, input[type="email"]:hover{
+    border: none;
+    border-bottom: 1em solid #80CED6;
+}
+
+
+/*Validating form, the code from Joost Faber helped create this*/
+input[type="password"]:valid, input[type="email"]:valid {
+    border: none;
+    border-bottom: 1em solid rgba(133, 186, 161, 0.7);
+    color: black;
+}
+
+form:valid {
+    background: #85BAA1;
+}
+
+
+/*Finish ORDER section*/
+.finish-order {
+    background: #80CED6;
+    font-weight: 800;
+    font-size: 0.8em;
+    letter-spacing: .15em;
+    color: white;
+    text-transform: uppercase;
+    padding: 5vw;
+    flex-basis: 50vw;
+}
+
+.finish-order nav {
+    display: flex;
+    flex-direction: column;
+    padding: 4em 0 2em 0;
+    width: 100%;
+    height: auto;
+}
+/*all links get a white color*/
+.finish-order a {
+    color: white;
+}
+/*hocus on links in finish order*/
+.finish-order a:hover, .finish-order a:focus {
+    color: inherit;
+}
+
+/*Changes appearance of every ordered list sibling of progress*/
+progress + ol {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 0;
+}
+
+progress + ol li {
+    list-style-type: none;
+    display: flex;
+    color: #6e8894;
+}
+
+
+/*Used tips to style progress bar from: https://css-tricks.com/html5-progress-element/*/
+/*Appearance is not well supported in IE*/
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 2em;
+    width: 100%;
+}
+
+progress[value]::-webkit-progress-bar {
+    background: white;
+}
+
+progress[value]::-webkit-progress-value {
+    background: #595959;
+}
+
+/*The progress bar is green in mozilla, just because I can*/
+progress[value]::-moz-progress-bar {
+    background: #85BAA1;
+}
+
+progress[value] {
+    background: white;
+    border: none;
+}
+
+/*chat starts here*/
 .chat {
     display: flex;
     background: #85BAA1;
@@ -721,6 +732,7 @@ fieldset svg {
     font-family: "Open Sans", sans-serif;
 }
 
+/*all direct paragraphs in list items in chat get rounded top-corners*/
 .chat li > p {
     background: white;
     border-radius: 0.8em;
@@ -735,6 +747,7 @@ fieldset svg {
     box-sizing: border-box;
 }
 
+/*all footers in chat get rounded bottom-corners*/
 .chat footer {
     display: flex;
     flex-direction: row;
@@ -749,6 +762,7 @@ fieldset svg {
     box-sizing: border-box;
 }
 
+/*every odd element gets a different footer background color*/
 .chat li:nth-child(2n+1) footer {
     border-radius: 0.8em;
     border-top-right-radius: 0;
@@ -763,6 +777,7 @@ fieldset svg {
     padding: 0.5em;
 }
 
+/*sorts on read and delivered*/
 p[data-status="READ"] {
     color: #85BAA1;
 }
@@ -780,15 +795,11 @@ p[data-status="DELIVERED"] {
     box-sizing: border-box;
 }
 
-ol + form[action="/"] {
+/*form around text field next to chat:*/
+form[class="textarea-container"] {
     display: flex;
     flex-direction: column;
     width: 50%;  
-}
-
-label[for="field-message"] {
-    font-family: "Scope One", serif;
-    margin-bottom: 1em;
 }
  
 /*text area*/
@@ -803,18 +814,6 @@ textarea[name="field-message"] {
 
 textarea + button[type="submit"] {
     margin-top: 2em;
-}
-
-/*Select all footers of this doc*/
-footer {
-    font-weight: 900;
-    font-size: 0.8em;
-    text-transform: uppercase;
-}
-
-/*all links in footers*/
-footer a{
-    color: #80CED6;
 }
 
 /*loading */
@@ -859,8 +858,6 @@ footer a{
     }
     
 }
-
-
 
 /*mediaqueries*/
 @media (max-width: 57.813em) {
