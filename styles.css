@@ -325,9 +325,9 @@ a.expand-click:after {
     display: flex;
     flex-basis: 25.5em;
     justify-content: flex-start;
+    align-items: center;
     width: 50%;
     height: auto;
-    padding: 4em 0 2em 0;
     flex-grow: 1;
     box-sizing: border-box;
     color: #333;
@@ -568,7 +568,8 @@ article.media {
 .picture {
     background: #6E8894;
     padding: 5vw;
-    padding-top: 1em;
+    padding-top: 2em;
+    padding-bottom: 3em;
 }
 
 .picture > .two-column-element {
