@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     font-family: "Open Sans",  sans-serif;
 }
-
+ 
 h1 {
     font-family: inherit;
     letter-spacing: .15em;
@@ -643,15 +643,16 @@ a.expand-click::target {
 
 /*The fancy Ampersand, code from CSS Secrets by Lea Verou. I hope you do understand I had to, this is not a design choice*/
 @font-face {
-    font-family: Ampersand;
-    src:    local('Engravers MT'),
-            local('Edwardian Script ITC'),
-            local('Palatino'),
-            local('Comic Sans MS');
-    unicode-range: U+26;
+    font-family: Fancy;
+    src:    url(fonts/RobotoSlab-Regular.ttf);
+    unicode-range: U+004D, U+004F, U+0055, U+004E,  U+0054;
     }
-.ampersandify {
-font-family: Ampersand, "Open Sans", sans-serif;
+
+.mountify {
+    font-family: Fancy, "Open Sans", sans-serif;
+    margin: 0;
+    font-size: 12vw;
+    align-self: center;
 }
 
 
@@ -672,3 +673,39 @@ font-family: Ampersand, "Open Sans", sans-serif;
     }
     
 }
+
+
+
+.random-mountains {
+    display: flex;
+    justify-content: center;
+    height: 18em;
+    background: #80CED6;
+    background-image: 
+        linear-gradient(-48deg, #6a9193, #80aeaf, #a4dadd, 7em, transparent 0), 
+        linear-gradient(-66deg, #6a9193, #80aeaf, #cdf2f4 5em, transparent 0);
+    background-size: 12em 100%, 11em 100%;
+    animation: moving-mountains 100s infinite;
+
+}
+
+.more-random {
+    height: 20em;
+    margin-top: -20em;
+    background-image:
+        linear-gradient(-47deg, #cdf2f4, #defafc, white, 3em, transparent 0), 
+        linear-gradient(35deg,  #a4dadd, #cdf2f4, 5em, transparent 0);
+    background-size:  7em 100%, 13em 100%;
+    animation: moving-mountains 150s infinite;
+}
+
+
+@keyframes moving-mountains {
+    from {
+        background-position: left 0;  
+    }
+    to {
+        background-position: right 0;  
+    }
+}
+
