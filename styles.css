@@ -823,25 +823,27 @@ footer a{
     background: red;
     align-self: center;
     margin: 0.5em;
-    animation: loader 3s infinite;
+    animation: loader 1s infinite ease-in-out;
 }
 
 .circle2 {
-    animation-delay: 1s;
+    animation-delay: .16s;
 } 
 .circle3 {
-    animation-delay: 2s;
+    animation-delay: .32s;
 }
 
 
 @keyframes loader{
-    from {
+    0, 80%, 100% {
+        width: 0;
+        height: 0;
+        transform: translateY(.1em);
+    }
+    40% {
         width: 1em;
         height: 1em;
-    }
-    to {
-        width: 2em;
-        height: 2em;
+        transform: translateY(0);
     }
     
 }
