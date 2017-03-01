@@ -141,6 +141,15 @@ a.expand-click:after {
     position: absolute;
 }
 
+/*using sibling selector to add animation to arrow on focus of anchor*/
+.menu-toggle a:focus + .arrow-down {
+    animation: focuswiggle 2s 100;
+}
+
+.menu-toggle a:focus + a + .arrow-down {
+    animation: focuswiggle 2s 100;
+}
+
 /*Animation menu-toggle*/
 @keyframes wiggle {
   0%{
