@@ -255,6 +255,11 @@ a.expand-click:after {
     transition: 1s;
 }
 
+#open-menu:target + a + .menu-toggle + main > .random-mountains, 
+#open-menu:target + a + .menu-toggle + main > .random-mountains + .more-random {
+    filter: blur(.3em);
+}
+
 /*end main navigation*/
 
 
@@ -814,13 +819,15 @@ footer a{
     align-content: center;
     width: 100vw;
     height: 10em;
+    background: #6E8894;
+    cursor: progress;
 }
 
 .circle1, .circle2, .circle3 {
     width: 1em;
     height: 1em;
     border-radius: 100%;
-    background: red;
+    background: white;
     align-self: center;
     margin: 0.5em;
     animation: loader 1s infinite ease-in-out;
@@ -835,10 +842,10 @@ footer a{
 
 
 @keyframes loader{
-    0, 80%, 100% {
+    0%, 80%, 100% {
         width: 0;
         height: 0;
-        transform: translateY(.1em);
+        transform: translateY(.5em);
     }
     40% {
         width: 1em;
