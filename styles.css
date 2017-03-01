@@ -434,6 +434,13 @@ button[type="submit"]:hover {
     color: #6E8894;
 }
 
+/*hover states input form*/
+input[type="password"]:hover, input[type="email"]:hover{
+    border: none;
+    border-bottom: 1em solid #80CED6;
+}
+
+
 /*Validating form:*/
 input[type="password"]:valid, input[type="email"]:valid {
     border: none;
@@ -445,11 +452,7 @@ form:valid {
     background: #85BAA1;
 }
 
-/*hover states input form*/
-input[type="password"]:hover, input[type="email"]:hover{
-    border: none;
-    border-bottom: 1em solid #80CED6;
-}
+
 
 
 /*Finish order section*/
