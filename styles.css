@@ -1,4 +1,6 @@
-/*general styles*/
+/* ==========================================================================
+   General Styles
+   ========================================================================== */
 
 body {
     margin: 0;
@@ -49,7 +51,9 @@ main {
     max-width: 100vw;
 }
 
-/*Main Navigation*/
+/* ==========================================================================
+   Main nav
+   ========================================================================== */
 /*main-nav is out of the viewport only menu-toggle button is visible*/
 .main-nav {
     display: flex;
@@ -270,7 +274,9 @@ a.expand-click:after {
 
 /*end main navigation*/
 
-
+/* ==========================================================================
+   Fancy ampersand & mountain div
+   ========================================================================== */
 /*The fancy Ampersand. I was very rebellious, this is fancy word. Using unicodes I made the letters M O U N T the font Roboto Slab*/
 @font-face {
     font-family: Fancy;
@@ -319,6 +325,10 @@ a.expand-click:after {
     }
 }
 
+/* ==========================================================================
+   Standard flexiness
+   ========================================================================== */
+
 /*Standard flexy two item row*/
 .two-item-row {
     display: flex;
@@ -341,7 +351,9 @@ a.expand-click:after {
     color: #333;
 }
 
-/*Both articles*/
+/* ==========================================================================
+   Articles
+   ========================================================================== */
 .two-item-row article {
     flex-direction: column;
     justify-content: flex-start;
@@ -379,7 +391,9 @@ article.media {
     padding-bottom: 3em;
 }
 
-/*rating*/
+/* ==========================================================================
+   Rating
+   ========================================================================== */
 .rating {
     padding-top: 1em;
     font-size: 0.6em;
@@ -507,7 +521,9 @@ figure > h3 {
     color: #444;
 }
 
-/*LOGIN starts here*/
+/* ==========================================================================
+   Log in
+   ========================================================================== */
 .log-in {
     background: #595959;
     height: auto;
@@ -631,8 +647,9 @@ form:valid {
     background: #85BAA1;
 }
 
-
-/*Finish ORDER section*/
+/* ==========================================================================
+   Order
+   ========================================================================== */
 .finish-order {
     background: #80CED6;
     font-weight: 800;
@@ -677,7 +694,6 @@ progress + ol li {
 
 
 /*Used tips to style progress bar from: https://css-tricks.com/html5-progress-element/*/
-/*Appearance is not well supported in IE*/
 progress {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -704,7 +720,9 @@ progress[value] {
     border: none;
 }
 
-/*chat starts here*/
+/* ==========================================================================
+   Chat
+   ========================================================================== */
 .chat {
     display: flex;
     background: #85BAA1;
@@ -802,7 +820,9 @@ form[class="textarea-container"] {
     width: 50%;  
 }
  
-/*text area*/
+/* ==========================================================================
+   Text area
+   ========================================================================== */
 textarea[name="field-message"] {
     border: none;
     height: 20em;
@@ -816,7 +836,9 @@ textarea + button[type="submit"] {
     margin-top: 2em;
 }
 
-/*loading */
+/* ==========================================================================
+   Loading spinner
+   ========================================================================== */
 .loader {
     display: flex;
     justify-content: center;
@@ -859,7 +881,9 @@ textarea + button[type="submit"] {
     
 }
 
-/*mediaqueries*/
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
 @media (max-width: 57.813em) {
     .inner-two-column-element {
         flex-grow: 1;
